@@ -1,0 +1,48 @@
+"use strict";
+const projects = [{"id": "solar", "title": "Solar mounting systems", "org": "SOLARD", "category": "Product", "tag": "DESIGN & DEVELOPMENT", "desc": "Rooftop and ground-mounted systems. Up to 40% lower structure cost.", "status": "Professional experience", "intro": "Developed solar support systems from concept and CAD through prototypes, field installation tests and production handover.", "role": "Mechanical Design Engineer → Senior Mechanical Design Engineer", "tools": "Autodesk Inventor · Autodesk Nastran · Structural FEA · DFM", "work": ["Designed mounting solutions for metal sheet, tile and concrete roofs, as well as ground-mounted installations.", "Verified structural performance under wind and solar-panel weight loads.", "Reduced part count, optimized material use and simplified fabrication.", "Supervised two junior engineers and coordinated prototype work with suppliers and installers."], "results": ["Up to 40% reduction in structure cost.", "25% reduction in installation time.", "30% faster design turnaround through standardized workflows."], "note": "Results are from the supplied CV. The illustration is a general solar-support schematic, not a drawing of a delivered product."}, {"id": "die", "title": "Aluminum extrusion dies", "org": "ALUMET", "category": "Analysis", "tag": "DIE DESIGN & TRIALS", "desc": "QForm simulation, die development and trial-based design improvements.", "status": "Professional experience", "intro": "Design extrusion dies for door and window profiles, heatsinks and custom sections, combining simulation with production trial feedback.", "role": "Die Design Engineer · October 2025–Present", "tools": "QForm · SolidWorks · AutoCAD · FEA · Trial validation", "work": ["Evaluate metal flow balance, extrusion velocity, die performance and exit temperature before production.", "Plan design priorities, technical reviews, trial conditions and evaluation criteria.", "Analyze inspection and trial results, investigate root causes and implement corrections.", "Coordinate sample qualification with production, quality and planning teams."], "results": ["Delivered qualified samples on schedule, as documented in the CV.", "Expanded scope to design and testing planning, department coordination and monthly KPI reporting."], "note": "No customer profile or proprietary die drawing is shown. This is an illustrative die concept."}, {"id": "sheet", "title": "Sheet metal & fabrication", "org": "ANCA MANUFACTURING", "category": "Fabrication", "tag": "CAD TO PRODUCTION", "desc": "Production drawings, flat patterns and manufacturing support.", "status": "Professional experience", "intro": "Reviewed customer designs and developed manufacturing-ready CAD and documentation for sheet metal, tube structures, welded assemblies and machined parts.", "role": "Design Engineer · March 2024–April 2025", "tools": "3D CAD · GD&T · BOM · DFM / DFA · Engineering changes", "work": ["Reviewed critical dimensions, manufacturing constraints and assembly requirements.", "Prepared flat patterns and technical drawings for laser cutting, forming and fabrication.", "Verified designs before production release and supported technical handovers.", "Worked with production and quality teams to resolve dimensional, fabrication and assembly issues."], "results": ["Improved manufacturability through production feedback and design revisions.", "Supported new-product delivery through drawing review, manufacturing documentation and technical coordination."], "note": "The enclosure illustration explains the type of work. It is not a customer drawing or a claimed delivered design."}, {"id": "analysis", "title": "Simulation & validation", "org": "ENGINEERING PRACTICE", "category": "Analysis", "tag": "MODEL · TEST · REFINE", "desc": "Structural analysis and extrusion simulation linked to physical testing.", "status": "Professional capability", "intro": "Use engineering analysis to support design decisions, then compare the design with prototype, inspection and trial feedback.", "role": "Across SolarD and Alumet", "tools": "Autodesk Nastran · QForm · FEA · Root cause analysis", "work": ["Evaluate structural response under wind and panel-weight load cases.", "Study extrusion flow and temperature as part of die development.", "Use trial and inspection results to identify design issues.", "Document findings and incorporate corrections into the next design revision."], "results": ["Supported design validation and systematic corrective action."], "note": "Colors in this illustration are conceptual. They are not measured or simulated stress values, and no numerical analysis result is claimed."}, {"id": "ai", "title": "FRIDAY / AI Local", "org": "PERSONAL PROJECT", "category": "Personal", "tag": "AI & CAD WORKFLOWS", "desc": "A local assistant with a FreeCAD connection and ongoing workflow development.", "status": "In development", "intro": "A personal exploration of local AI tools and engineering workflows, including an assistant connected to FreeCAD.", "role": "Personal development project", "tools": "Python · Local AI · FreeCAD · Workflow integration", "work": ["Developed a local assistant interface and application launch workflow.", "Connected the assistant workflow to FreeCAD model creation.", "Created an example model through the FreeCAD connection.", "Exploring improvements to video automation and broader workflow reliability."], "results": ["FreeCAD model creation was recorded as working in the project history.", "The broader workflow remains in development; it is not presented as a production-ready product."], "note": "Based on the project history in this conversation. The screen drawing is illustrative, not a screenshot of the application."}, {"id": "drone", "title": "Quadcopter concept", "org": "PERSONAL PROJECT", "category": "Personal", "tag": "CAD EXPLORATION", "desc": "Frame and assembly studies. Hardware validation is still ahead.", "status": "Concept / not flight-tested", "intro": "An exploratory drone project focused on CAD layout, frame concepts and planning compatible hardware.", "role": "Personal CAD and engineering study", "tools": "FreeCAD · Assembly layout · Hardware planning", "work": ["Explored quadcopter frame and assembly layouts.", "Prepared project requirements and initial hardware planning.", "Identified the need to select real components before finalizing production dimensions."], "results": ["Concept-stage CAD work only.", "No completed build or successful flight test is claimed."], "note": "This illustration is a generic quadcopter concept, not a validated flight-ready design."}];
+const cards = [...document.querySelectorAll('.project')];
+const filters = [...document.querySelectorAll('[data-filter]')];
+const search = document.getElementById('search');
+let selected = 'All';
+function filterCards() {
+  const query = search.value.toLowerCase().trim();
+  let visible = 0;
+  cards.forEach(card => {
+    const match = (selected === 'All' || card.dataset.category === selected) && card.dataset.search.toLowerCase().includes(query);
+    card.hidden = !match;
+    if (match) visible++;
+  });
+  document.getElementById('count').textContent = `Showing ${visible} of ${cards.length} entries`;
+  document.getElementById('empty').hidden = visible !== 0;
+}
+filters.forEach(button => button.addEventListener('click', () => {
+  selected = button.dataset.filter;
+  filters.forEach(b => { b.classList.toggle('active', b === button); b.setAttribute('aria-pressed', String(b === button)); });
+  filterCards();
+}));
+search.addEventListener('input', filterCards);
+document.getElementById('reset').addEventListener('click', () => { search.value = ''; filters[0].click(); search.focus(); });
+const dialog = document.getElementById('project-dialog');
+let opener;
+function node(tag, text, cls) { const el = document.createElement(tag); el.textContent = text; if (cls) el.className = cls; return el; }
+document.querySelectorAll('[data-project]').forEach(button => button.addEventListener('click', () => {
+  const p = projects.find(item => item.id === button.dataset.project);
+  if (!p) return;
+  opener = button;
+  const body = document.getElementById('dialog-body');
+  body.replaceChildren();
+  const image = document.createElement('img'); image.src = `assets/${p.id}.svg`; image.alt = `Concept illustration: ${p.title}`; image.className = 'detail-image';
+  const content = node('div', '', 'detail-content');
+  content.append(node('p', p.org + ' / ' + p.status, 'eyebrow'));
+  const heading = node('h2', p.title); heading.id = 'dialog-title'; content.append(heading);
+  content.append(node('p', p.intro, 'detail-intro'), node('p', p.role, 'detail-role'), node('p', p.tools, 'detail-tools'));
+  [['Work & responsibilities', p.work], ['Outcomes & status', p.results]].forEach(([title, list]) => {
+    content.append(node('h3', title)); const ul = document.createElement('ul'); list.forEach(text => ul.append(node('li', text))); content.append(ul);
+  });
+  content.append(node('p', p.note, 'detail-note'));
+  body.append(image,content);
+  dialog.showModal(); document.body.classList.add('modal-open'); dialog.scrollTop = 0;
+}));
+document.getElementById('close-dialog').addEventListener('click', () => dialog.close());
+dialog.addEventListener('click', event => { if (event.target === dialog) { const r=dialog.getBoundingClientRect(); if(event.clientX<r.left || event.clientX>r.right || event.clientY<r.top || event.clientY>r.bottom) dialog.close(); } });
+dialog.addEventListener('close', () => { document.body.classList.remove('modal-open'); if(opener) opener.focus(); });
