@@ -21,27 +21,27 @@
       "25% reduction in installation time.",
       "30% faster design turnaround through standardized workflows."
     ],
-    "note": "Images extracted unchanged from the supplied older CV. The existing project text and dates have been retained; the images do not establish additional technical results.",
+    "note": "",
     "image": "cv-image17.png",
     "imageAlt": "Rooftop solar installation",
     "gallery": [
       {
         "src": "cv-image17.png",
         "alt": "Rooftop solar installation",
-        "caption": "Rooftop solar installation · From supplied CV"
+        "caption": ""
       },
       {
         "src": "cv-image13.png",
         "alt": "Solar rail CAD image",
-        "caption": "Solar rail CAD image · From supplied CV"
+        "caption": ""
       },
       {
         "src": "cv-image18.png",
         "alt": "Solar array design image",
-        "caption": "Solar array design image · From supplied CV"
+        "caption": ""
       }
     ],
-    "imageType": "FROM SUPPLIED CV"
+    "imageType": ""
   },
   {
     "id": "die",
@@ -64,9 +64,9 @@
       "Delivered qualified samples on schedule, as documented in the CV.",
       "Expanded scope to design and testing planning, department coordination and monthly KPI reporting."
     ],
-    "note": "Images extracted unchanged from the supplied older CV. The existing project text and dates have been retained; the images do not establish additional technical results.",
+    "note": "",
     "image": "cv-image2.jpeg",
-    "imageAlt": "Extrusion equipment and die from the supplied CV",
+    "imageAlt": "Extrusion equipment and die",
     "gallery": [
       {
         "src": "cv-image2.jpeg",
@@ -76,15 +76,15 @@
       {
         "src": "cv-image3.jpeg",
         "alt": "Extrusion trial image",
-        "caption": "Extrusion trial image · From supplied CV"
+        "caption": ""
       },
       {
         "src": "cv-image4.jpeg",
         "alt": "Extrusion simulation image",
-        "caption": "Extrusion simulation image · From supplied CV"
+        "caption": ""
       }
     ],
-    "imageType": "FROM SUPPLIED CV"
+    "imageType": ""
   },
   {
     "id": "sheet",
@@ -107,32 +107,32 @@
       "Improved manufacturability through production feedback and design revisions.",
       "Supported new-product delivery through drawing review, manufacturing documentation and technical coordination."
     ],
-    "note": "Images extracted unchanged from the supplied older CV. The existing project text and dates have been retained; the images do not establish additional technical results.",
+    "note": "",
     "image": "cv-image10.jpeg",
     "imageAlt": "Fabricated assembly",
     "gallery": [
       {
         "src": "cv-image10.jpeg",
         "alt": "Fabricated assembly",
-        "caption": "Fabricated assembly · From supplied CV"
+        "caption": ""
       },
       {
         "src": "cv-image9.jpeg",
         "alt": "Manufactured mechanical assembly",
-        "caption": "Manufactured mechanical assembly · From supplied CV"
+        "caption": ""
       },
       {
         "src": "cv-image11.jpeg",
         "alt": "Fabricated structures",
-        "caption": "Fabricated structures · From supplied CV"
+        "caption": ""
       },
       {
         "src": "cv-image12.png",
         "alt": "Machine enclosure image",
-        "caption": "Machine enclosure image · From supplied CV"
+        "caption": ""
       }
     ],
-    "imageType": "FROM SUPPLIED CV"
+    "imageType": ""
   },
   {
     "id": "analysis",
@@ -154,17 +154,17 @@
     "results": [
       "Supported design validation and systematic corrective action."
     ],
-    "note": "Images extracted unchanged from the supplied older CV. The existing project text and dates have been retained; the images do not establish additional technical results.",
+    "note": "",
     "image": "cv-image4.jpeg",
     "imageAlt": "Extrusion simulation image",
     "gallery": [
       {
         "src": "cv-image4.jpeg",
         "alt": "Extrusion simulation image",
-        "caption": "Extrusion simulation image · From supplied CV"
+        "caption": ""
       }
     ],
-    "imageType": "FROM SUPPLIED CV"
+    "imageType": ""
   },
   {
     "id": "ai",
@@ -187,15 +187,15 @@
       "FreeCAD model creation was recorded as working in the project history.",
       "The broader workflow remains in development; it is not presented as a production-ready product."
     ],
-    "note": "AI-generated concept image used because no matching image was included in the supplied CV. It is not a photograph, CAD output, or screenshot of the actual project. Project status remains as described above.",
+    "note": "",
     "image": "ai-generated.png",
-    "imageAlt": "AI-generated concept illustration for FRIDAY / AI Local",
-    "imageType": "AI-GENERATED CONCEPT",
+    "imageAlt": "Concept illustration for FRIDAY / AI Local",
+    "imageType": "",
     "gallery": [
       {
         "src": "ai-generated.png",
-        "alt": "AI-generated concept illustration for FRIDAY / AI Local",
-        "caption": "AI-generated concept illustration; not an actual project photograph or screenshot."
+        "alt": "Concept illustration for FRIDAY / AI Local",
+        "caption": ""
       }
     ]
   },
@@ -219,15 +219,15 @@
       "Concept-stage CAD work only.",
       "No completed build or successful flight test is claimed."
     ],
-    "note": "AI-generated concept image used because no matching image was included in the supplied CV. It is not a photograph, CAD output, or screenshot of the actual project. Project status remains as described above.",
+    "note": "",
     "image": "drone-generated.png",
-    "imageAlt": "AI-generated concept illustration for Quadcopter concept",
-    "imageType": "AI-GENERATED CONCEPT",
+    "imageAlt": "Concept illustration for Quadcopter concept",
+    "imageType": "",
     "gallery": [
       {
         "src": "drone-generated.png",
-        "alt": "AI-generated concept illustration for Quadcopter concept",
-        "caption": "AI-generated concept illustration; not an actual project photograph or screenshot."
+        "alt": "Concept illustration for Quadcopter concept",
+        "caption": ""
       }
     ]
   }
